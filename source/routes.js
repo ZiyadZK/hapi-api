@@ -79,9 +79,9 @@ const routes = [
     method: 'POST',
     path: '/registrasi',
     handler: async (request, h) => {
-        const { firstName, lastName, username, password } = request.payload;
+        const { firstName, lastName, username, password, email } = request.payload;
         try {
-            await createUser(firstName, lastName, username, password);
+            await createUser(firstName, lastName, username, password, email);
             return h.view('welcome.html');
         } catch (error) {
             console.error('Error in route handler:', error);
